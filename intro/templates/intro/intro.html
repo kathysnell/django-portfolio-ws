@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="intro-section" 
+     style="background-color: {{ intro_data.bgcolor }}; 
+            {% if intro_data.bgimage %} 
+                background-image: url('{{ intro_data.bgimage.url }}'); 
+                background-size: cover; 
+                background-position: center;
+            {% endif %}">
+    {{ intro_data.content|safe }}
+</div>
+{% endblock %}

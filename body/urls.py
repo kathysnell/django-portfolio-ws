@@ -4,7 +4,7 @@ from . import views
 from django.conf import settings
 
 urlpatterns = [
-#    path('', views.intro, name='intro'),
+    path('', views.BodyListView.as_view(), name='body-list'),
 ]
 
 from django.conf import settings

@@ -14,6 +14,7 @@ class BaseContent(BaseModel):
     content = HTMLField()
     bgcolor = ColorField(default='#ffffff')
     bgimage = models.ImageField(upload_to='backgrounds/', null=True, blank=True)
+    active = models.BooleanField(default=False)
 
     def __str__(self):
         return len(self.content) > 15 and strip_tags(self.content)[:15] or strip_tags(self.content)

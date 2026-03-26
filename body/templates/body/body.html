@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+{% if card_list %}
+    <div>
+        {% for card in card_list %}
+            <div class="card-container"style="--card-container-bg-color: {{ card.bgcolor }};
+                {% if card.bgimage %}
+                    --card-container-bg-image: url('{{ card.bgimage.url }}');
+                {% endif %}">    
+                {% include "body/card.html" with object=card %}
+            </div>      
+        {% endfor %}
+    </div>
+{% endif %}
+{% if body_data %}
+    <div class="body-section">
+        {{ body_data.content|safe }}
+    </div>
+{% endif %}
+{% endblock content %}

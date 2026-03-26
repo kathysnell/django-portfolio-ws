@@ -1,6 +1,13 @@
 {% load static %}
 <header>
-    <div>
-        {% url 'intro' as intro_url %}
-    </div>
+    {% if intro %}
+        <div class="intro-section" style="background-color: {{ intro.bgcolor }}; 
+            {% if intro.bgimage %} 
+                background-image: url('{{ intro.bgimage.url }}'); 
+                background-size: cover; 
+                background-position: center;
+            {% endif %}">
+            {{ intro.content|safe }}
+        </div>
+    {% endif %}
 </header>

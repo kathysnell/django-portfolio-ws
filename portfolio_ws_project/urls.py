@@ -40,6 +40,6 @@ urlpatterns = [
     path('your-admin-gateway/', admin.site.urls),
     path('tinymce-shared/', include('core.urls')), 
     path('tinymce/upload_image/', tinymce_upload_image, name='tinymce_upload_image'),
-    path("", include("intro.urls")),
+    path("", include("body.urls")),
 ]
 

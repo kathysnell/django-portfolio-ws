@@ -1,0 +1,64 @@
+/* Global CSS Variable declarations */
+.root{
+  --card-front-bg-color: #4CAF50;
+  --card-front-bg-image: url('../img/card-front-bg.jpg');
+  --card-front-text-color: white;
+  --card-back-bg-color: #f1f1f1;
+  --card-back-bg-image: url('../img/card-back-bg.jpg');
+  --card-back-text-color: black;
+}
+
+/* The flip card container */
+.flip-card {
+  container-type: inline-size;
+  background-color: transparent;
+  height: 200px;
+  perspective: 1000px;
+  width: 300px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+/* This container is needed to position the front and back side */
+.flip-card-inner {
+  height: 100%;
+  position: relative;
+  width: 100%;
+  text-align: center;
+  transform-style: preserve-3d;
+  transition: transform 0.8s;
+}
+
+/* Do an horizontal flip when you move the mouse over the flip box container */
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+/* Position the front and back side */
+.flip-card-front, .flip-card-back {
+  backface-visibility: hidden;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+}
+
+/* Style the front side */
+.flip-card-front {
+  background-color: var(--card-front-bg-color);
+  background-image: var(--card-front-bg-image);
+  background-size: cover;
+  color: var(--card-front-text-color);
+  background-position: center;
+}
+
+/* Style the back side */
+.flip-card-back {
+  transform: rotateY(180deg);
+  background-color: var(--card-back-bg-color);
+  background-image: var(--card-back-bg-image);
+  background-size: cover;
+  color: var(--card-back-text-color);
+  background-position: center;
+}
+

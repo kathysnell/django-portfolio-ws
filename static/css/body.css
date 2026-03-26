@@ -1,0 +1,63 @@
+/* Global CSS Variable declarations */
+.root{
+  --card-container-bg-color: #ffffff;
+}
+
+/* Basic Reset and Styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.navbar ul {
+    background: linear-gradient(to bottom, rgb(40, 40, 85), blue);
+    background-color: darkblue;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: center;
+    list-style-type: none;
+    padding: 10px;
+    overflow: hidden;
+}
+
+.navbar li a {
+    background-color: gold;
+    border: 2px solid darkblue;
+    box-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px blueviolet;
+    color: black;
+    display: flex;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 14px;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    white-space: normal;
+    word-break: normal;
+    overflow-wrap: normal;
+    align-items: center;
+    justify-content: center;
+    line-height: 1.2;
+    flex: 0 1 auto;
+    max-width: 100px;
+    height: 100px;
+}
+
+.navbar li a:hover {
+    background-color: goldenrod;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+    width: 100%;
+    background-color: var(--card-container-bg-color);
+}

@@ -1,6 +1,11 @@
 /* Global CSS Variable declarations */
 .root{
   --card-container-bg-color: #ffffff;
+  --card-container-bg-image: none;
+  --navbar-justify: center;
+  --navbar-bg-color: #ffffff;
+  --navbar-bg-image: none;
+  --navlink-bg-color: gray;
 }
 
 /* Basic Reset and Styling */
@@ -15,41 +20,32 @@ body {
 }
 
 .navbar ul {
-    background: linear-gradient(to bottom, rgb(40, 40, 85), blue);
-    background-color: darkblue;
+    background: var(--navbar-bg-color);
+    background-color: var(--navbar-bg-color);
+    background-image: var(--navbar-bg-image);
     display: flex;
     flex-wrap: wrap;
     gap: 5px;
-    justify-content: center;
+    justify-content: var(--navbar-justify);
     list-style-type: none;
     padding: 10px;
     overflow: hidden;
 }
 
 .navbar li a {
-    background-color: gold;
-    border: 2px solid darkblue;
-    box-shadow: 1px 1px 2px black, 0 0 25px blue, 0 0 5px blueviolet;
-    color: black;
+    background-color: var(--navlink-bg-color);
+    color: var(--navlink-text-color);
     display: flex;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 14px;
     padding: 10px;
-    text-align: center;
     text-decoration: none;
     white-space: normal;
     word-break: normal;
     overflow-wrap: normal;
-    align-items: center;
-    justify-content: center;
-    line-height: 1.2;
     flex: 0 1 auto;
-    max-width: 100px;
-    height: 100px;
 }
 
 .navbar li a:hover {
-    background-color: goldenrod;
+    filter: brightness(0.85);
 }
 
 .card-container {
@@ -60,4 +56,5 @@ body {
     padding: 20px;
     width: 100%;
     background-color: var(--card-container-bg-color);
+    background-image: var(--card-container-bg-image);
 }

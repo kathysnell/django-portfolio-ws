@@ -1,0 +1,21 @@
+{% load static %}
+<nav class="navbar">
+    <ul class="navbar-links"style="--navbar-justify: {{ links_justify }}; --navbar-bg-color: {{ links_bgcolor }};
+                {% if links_bgimage_url %}
+                    --navbar-bg-image: url('{{ links_bgimage_url }}');
+                {% endif %}">
+    {% for link in links %}
+        <li class="nav-item"style="--navlink-bg-color: {{ link.bgcolor }};
+                {% if link.bgimage %}
+                    --navlink-bg-image: url('{{ link.bgimage.url }}');
+                {% endif %};">
+            <a href="{{ link.url }}" target={{ link.url }} style="margin: 0 10px; text-decoration: none; color: #555;">
+                {% if link.icon %}
+                    <img src="{{ link.icon.url }}" alt="{{ link.text }}">
+                {% endif %}
+                {{ link.text }}
+            </a>
+        </li>
+    {% endfor %}
+    </ul>
+</nav>

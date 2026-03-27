@@ -1,7 +1,10 @@
 {% load static %}
 <header>
+    {% if links and links_position == 'pre_header' %}
+        {% include "nav.html" %}
+    {% endif %}
     {% if intro %}
-        <div class="intro-section" style="background-color: {{ intro.bgcolor }}; 
+        <div class="intro-section"style="background-color: {{ intro.bgcolor }}; 
             {% if intro.bgimage %} 
                 background-image: url('{{ intro.bgimage.url }}'); 
                 background-size: cover; 
@@ -9,5 +12,8 @@
             {% endif %}">
             {{ intro.content|safe }}
         </div>
+    {% endif %}
+    {% if links and links_position == 'post_header' %}
+        {% include "nav.html" %}
     {% endif %}
 </header>

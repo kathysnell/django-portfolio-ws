@@ -12,6 +12,9 @@
         {% endfor %}
     </div>
 {% endif %}
+{% if links and links_position == 'post_card' %}
+    {% include "nav.html" %}
+{% endif %}
 {% if body_data %}
     <div class="body-section">
         {{ body_data.content|safe }}

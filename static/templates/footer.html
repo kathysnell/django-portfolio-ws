@@ -1,4 +1,7 @@
 {% load static %}
+{% if links and links_position == 'pre_footer' %}
+    {% include "nav.html" %}
+{% endif %}
 <footer>
     <div style="text-align: center; padding: 20px; font:verdana, sans-serif; color: #555;">
         <p>&copy; 2026 YourName.dev. All rights reserved.</p>

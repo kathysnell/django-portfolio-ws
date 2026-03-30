@@ -10,7 +10,7 @@
                 background-size: cover; 
                 background-position: center;
             {% endif %}">
-            {{ intro.content|safe }}
+            {{ intro.content_html }}
         </div>
     {% endif %}
     {% if links and links_position == 'post_header' %}

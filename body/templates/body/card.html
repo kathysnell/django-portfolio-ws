@@ -4,13 +4,13 @@
         {% if card.front.bgimage %}
             --card-front-bg-image: url('{{ card.front.bgimage.url }}');
         {% endif %}">
-        {{ card.front.content|safe }}      
+        {{ card.front.content_html }}      
     </div>
     <div class="flip-card-back"style="--card-back-bg-color: {{ card.back.bgcolor }};
         {% if card.back.bgimage %}
             --card-back-bg-image: url('{{ card.back.bgimage.url }}');
         {% endif %}">
-        {{ card.back.content|safe }}      
+        {{ card.back.content_html }}      
     </div>
   </div>
 </div>

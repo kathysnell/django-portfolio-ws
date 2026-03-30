@@ -11,7 +11,10 @@ class Card(BaseContent):
         choices=zip(BOXES, BOXES),
         default=BOXES[0],
     )
-    
+
+    def __str__(self):
+        return f"Card {self.front} / {self.back} (Box {self.box}, Active: {self.active})"
+
     @property
     def front(self):
         sides = getattr(self, 'active_sides', self.sides.filter(active=True))

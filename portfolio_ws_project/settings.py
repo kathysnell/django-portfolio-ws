@@ -29,8 +29,8 @@ if DEBUG:
     print(f"BASE_DIR set to: {BASE_DIR}")
 
 # CLOUD RUN SERVICE using VPC CONNECTOR - https://cloud.google.com/run/docs/configuring/connecting-vpc#configure-django
-hosts = os.getenv('ALLOWED_HOSTS', '*')
-ALLOWED_HOSTS = hosts.split(',') if hosts else ['*']
+hosts = os.getenv('ALLOWED_HOSTS', '')
+ALLOWED_HOSTS = hosts.split(',') if hosts else ['127.0.0.1', 'localhost']
 if DEBUG:
     print(f"ALLOWED_HOSTS set to: {ALLOWED_HOSTS}")
 
@@ -42,12 +42,14 @@ if DEBUG:
 if not DEBUG:
     SECURE_SSL_REDIRECT = True
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    SECURE_REFERRER_POLICY = "strict-origin-when-cross-origin"
     CSRF_COOKIE_SECURE = True
     SESSION_COOKIE_SECURE = True
     X_FRAME_OPTIONS = 'DENY'
-    SECURE_HSTS_SECONDS = 31536000  # 1 year
+    SECURE_HSTS_SECONDS = 3600 # 1 hour
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_HSTS_PRELOAD = True
+    PREPEND_WWW = True
 else:
     SECURE_SSL_REDIRECT = False
 

@@ -17,7 +17,14 @@
 {% endif %}
 {% if body_data %}
     <div class="body-section">
-        {{ body_data.content|safe }}
+        {{ body_data.content_html }}
     </div>
+{% endif %}
+{% if body_list %}
+    {% for body in body_list %}
+        <div class="body-section">
+            {{ body.content_html }}
+        </div>
+    {% endfor %}
 {% endif %}
 {% endblock content %}

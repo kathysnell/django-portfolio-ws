@@ -2,10 +2,10 @@ from django.contrib import admin
 from .models import Link, LinkBar
 
 class LinkAdmin(admin.ModelAdmin):
-    pass
+    exclude = ('content',)
 
 class LinkBarAdmin(admin.ModelAdmin):
-    exclude = ('content',)
+    exclude = ('content','page',)
 
 admin.site.register(Link, LinkAdmin)
 admin.site.register(LinkBar, LinkBarAdmin)

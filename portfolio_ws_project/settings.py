@@ -46,10 +46,10 @@ if not DEBUG:
     CSRF_COOKIE_SECURE = True
     SESSION_COOKIE_SECURE = True
     X_FRAME_OPTIONS = 'DENY'
-    SECURE_HSTS_SECONDS = 3600 # 1 hour
+    SECURE_HSTS_SECONDS = 3600  # increase to 1 year after cert checks
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_HSTS_PRELOAD = True
-    PREPEND_WWW = True
+    SESSION_COOKIE_HTTPONLY = True
 else:
     SECURE_SSL_REDIRECT = False
 
@@ -86,6 +86,7 @@ AXES_COOLOFF_TIME = 2
 AXES_RESET_ON_SUCCESS = True 
     
 MIDDLEWARE = [
+    'portfolio_ws_project.middleware.RedirectWwwMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',

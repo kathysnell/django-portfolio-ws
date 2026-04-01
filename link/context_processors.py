@@ -15,7 +15,7 @@ def global_link(request):
         link_bar_justify = 'center'
         link_bar_bgcolor = '#ffffff'
         link_bar_bgimage_url = None
- 
+    
     return {'links': link_data, 
             'links_position': link_bar_position, 
             'links_justify': link_bar_justify, 

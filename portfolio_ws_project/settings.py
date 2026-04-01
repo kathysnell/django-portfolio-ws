@@ -132,7 +132,8 @@ WSGI_APPLICATION = 'portfolio_ws_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
-
+##### ---- ENABLE THIS FOR LOCAL DEVELOPMENT WITH SQLITE -------- #####
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -142,6 +143,10 @@ DATABASES = {
 
 DB_HOST = os.environ.get("DB_HOST", "db")
 '''
+##### ---- END ENABLE THIS FOR LOCAL DEVELOPMENT WITH SQLITE ---- #####
+##### ---- ENABLE THIS FOR PRODUCTION WITH POSTGRESQL ----------- #####
+
+DB_HOST = os.environ.get("DB_HOST", "db")
 DB_NAME = os.environ.get("DB_NAME", "postgres")
 DB_USER = os.environ.get("DB_USER", "postgres")
 DB_PASS = os.environ.get("DB_PASS", "postgres")
@@ -156,7 +161,7 @@ DATABASES = {
         "HOST": DB_HOST,
         "PORT": "5432",
         "OPTIONS": {
-            "sslmode": "require",
+            #"sslmode": "require", # Enable for non-Debug production environments
             "connect_timeout": 5, # Helps debug timeouts vs socket errors} 
         }
     }
@@ -164,7 +169,9 @@ DATABASES = {
 
 if DEBUG:
     print(f"Database configuration: {DATABASES['default']}")
-'''
+
+##### ---- END ENABLE THIS FOR PRODUCTION WITH POSTGRESQL ----------- #####
+
 # Password validation
 # https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
 

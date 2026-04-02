@@ -16,13 +16,13 @@
     {% include "nav.html" %}
 {% endif %}
 {% if body_data %}
-    <div class="body-section">
+    <div class="body-container">
         {{ body_data.content_html }}
     </div>
 {% endif %}
 {% if body_list %}
     {% for body in body_list %}
-        <div class="body-section">
+        <div class="body-container">
             {{ body.content_html }}
         </div>
     {% endfor %}

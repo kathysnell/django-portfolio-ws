@@ -58,3 +58,21 @@ body {
     background-color: var(--card-container-bg-color);
     background-image: var(--card-container-bg-image);
 }
+
+.body-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+    width: 100%;
+}
+
+.intro-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+    width: 100%;
+}

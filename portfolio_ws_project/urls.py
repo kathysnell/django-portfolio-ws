@@ -16,11 +16,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import include, path
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, RedirectView
 from tinymce import settings
 from core.views import tinymce_upload_image
+from django.contrib.staticfiles.storage import staticfiles_storage
 
 urlpatterns = [
+    path('favicon.ico', RedirectView.as_view(url=staticfiles_storage.url('images/favicon.ico'))),
     path(
         "sitemap.xml",
         TemplateView.as_view(

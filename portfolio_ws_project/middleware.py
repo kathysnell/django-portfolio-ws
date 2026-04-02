@@ -4,7 +4,7 @@ class RedirectWwwMiddleware:
     def __init__(self, get_response):
         self.get_response = get_response
         self.allowed_redirects = {
-            "www.kathysnell.dev": "https://kathysnell.dev",
+            "www.yourwebsite.com": "https://yourwebsite.com",
         }
 
     def __call__(self, request):

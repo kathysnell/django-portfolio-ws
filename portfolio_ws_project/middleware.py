@@ -1,10 +1,11 @@
 from django.http import HttpResponsePermanentRedirect
+from core.constants import WWW_URL, SECURE_URL
 
 class RedirectWwwMiddleware:
     def __init__(self, get_response):
         self.get_response = get_response
         self.allowed_redirects = {
-            "www.yourwebsite.com": "https://yourwebsite.com",
+            WWW_URL: SECURE_URL,
         }
 
     def __call__(self, request):

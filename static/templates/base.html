@@ -1,15 +1,16 @@
 {% load static %}
+{% load core_tags %}
 <!DOCTYPE html>
 <html lang="en" xml:lang="en">
     <head>
-        <title>Your Name Dev Site</title>
+        <title>{% get_const 'WEB_TITLE' %}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/card.css' %}" />
         <link rel="stylesheet" type="text/css" href="{% static 'css/body.css' %}" />
         <link rel="canonical" href="{% block canonical_url %}https://{{ request.get_host }}{{ request.path }}{% endblock %}">
     </head> 
-    <body>
+    <body style="--intro-container-bg-color: {{ intro.bgcolor }};">
         {% include "header.html" %}
         <div>
             {% block content %}

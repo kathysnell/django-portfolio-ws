@@ -1,16 +1,22 @@
 <div class="flip-card">
   <div class="flip-card-inner">
-    <div class="flip-card-front"style="--card-front-bg-color: {{ card.front.bgcolor }}; 
+    <div class="flip-card-front"style="--card-front-bg-color: {{ card.front.bgcolor }}; --card-front-text-color: {{ card.front.textcolor }}; --card-front-border-color: {{ card.front.bordercolor }};
         {% if card.front.bgimage %}
             --card-front-bg-image: url('{{ card.front.bgimage.url }}');
+        {% endif %}
+        {% if card.roundedcorners %}
+            border-radius: 10px;
         {% endif %}">
-        {{ card.front.content_html }}      
+        {{ card.front.content_html }}          
     </div>
-    <div class="flip-card-back"style="--card-back-bg-color: {{ card.back.bgcolor }};
+    <div class="flip-card-back"style="--card-back-bg-color: {{ card.back.bgcolor }}; --card-back-text-color: {{ card.back.textcolor }}; --card-back-border-color: {{ card.back.bordercolor }};
         {% if card.back.bgimage %}
             --card-back-bg-image: url('{{ card.back.bgimage.url }}');
+        {% endif %}
+        {% if card.roundedcorners %}
+            border-radius: 10px;
         {% endif %}">
-        {{ card.back.content_html }}      
+        {{ card.back.content_html }}     
     </div>
   </div>
 </div>

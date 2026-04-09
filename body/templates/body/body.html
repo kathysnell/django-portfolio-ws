@@ -16,13 +16,19 @@
     {% include "nav.html" %}
 {% endif %}
 {% if body_data %}
-    <div class="body-container">
+    <div class="body-container"style="--body-container-bg-color: {{ body.bgcolor }};
+        {% if body.bgimage %}
+            --body-container-bg-image: url('{{ body.bgimage.url }}');
+        {% endif %}">
         {{ body_data.content_html }}
     </div>
 {% endif %}
 {% if body_list %}
     {% for body in body_list %}
-        <div class="body-container">
+        <div class="body-container"style="--body-container-bg-color: {{ body.bgcolor }};
+            {% if body.bgimage %}
+                --body-container-bg-image: url('{{ body.bgimage.url }}');
+            {% endif %}">
             {{ body.content_html }}
         </div>
     {% endfor %}

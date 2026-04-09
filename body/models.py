@@ -1,6 +1,5 @@
 from django.db import models
-from tinymce.models import HTMLField
-
+from colorfield.fields import ColorField
 from core.models import BaseContent
 
 NUM_BOXES = 1
@@ -11,6 +10,7 @@ class Card(BaseContent):
         choices=zip(BOXES, BOXES),
         default=BOXES[0],
     )
+    roundedcorners = models.BooleanField(default=False)
 
     def __str__(self):
         return f"Card {self.front} / {self.back} (Box {self.box}, Active: {self.active})"
@@ -41,6 +41,7 @@ class CardSide(BaseContent):
         related_name='sides' # All sides for this card
     )
     is_front = models.BooleanField(default=True)
+    bordercolor = ColorField(default='#000000')
 
    
 class BodyContent(BaseContent):

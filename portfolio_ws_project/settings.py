@@ -73,6 +73,7 @@ INSTALLED_APPS = [
     'colorfield',
     'storages',
     'axes',
+    'core.templatetags.core_tags',
 ]
 
 AUTHENTICATION_BACKENDS = [
@@ -161,7 +162,7 @@ DATABASES = {
         "HOST": DB_HOST,
         "PORT": "5432",
         "OPTIONS": {
-            #"sslmode": "require", # Enable for non-Debug production environments
+            "sslmode": "require", # Enable for non-Debug production environments
             "connect_timeout": 5, # Helps debug timeouts vs socket errors} 
         }
     }

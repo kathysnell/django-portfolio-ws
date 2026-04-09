@@ -1,22 +1,25 @@
 /* Global CSS Variable declarations */
 .root{
-  --card-front-bg-color: #4CAF50;
+  --card-front-bg-color: dodgerblue;
   --card-front-bg-image: url('../img/card-front-bg.jpg');
   --card-front-text-color: white;
+  --card-front-border-color: dodgerblue;
   --card-back-bg-color: #f1f1f1;
   --card-back-bg-image: url('../img/card-back-bg.jpg');
   --card-back-text-color: black;
+  --card-back-border-color: #ccc;
+  --card-rounded-corners: 10px;
 }
 
 /* The flip card container */
 .flip-card {
   container-type: inline-size;
   background-color: transparent;
-  height: 200px;
-  perspective: 1000px;
-  width: 300px;
-  margin-bottom: 20px;
-  margin-top: 20px;
+  height: 12.5em;
+  perspective: 62.5em;
+  width: 18.75em;
+  margin-bottom: 1.25em;
+  margin-top: 1.25em;
 }
 
 /* This container is needed to position the front and back side */
@@ -50,6 +53,8 @@
   background-size: cover;
   color: var(--card-front-text-color);
   background-position: center;
+  border: 2px solid var(--card-front-border-color);
+  border-radius: var(--card-rounded-corners);
 }
 
 /* Style the back side */
@@ -60,5 +65,7 @@
   background-size: cover;
   color: var(--card-back-text-color);
   background-position: center;
+  border: 2px solid var(--card-back-border-color);
+  border-radius: var(--card-rounded-corners);
 }
 

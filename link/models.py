@@ -10,33 +10,8 @@ class Link(BaseContent):
     url = models.URLField(blank=True)
 
     def __str__(self):
-        return self.text or self.url or super().__str__() + f"Active: {self.active}"
-    
-    def is_internal_url(self):
-        print("Checking if URL is internal:", self.url)
-        allowed_hosts = set(settings.ALLOWED_HOSTS)
-        for host in allowed_hosts:
-            print("Allowed host:", host)
-            if host in self.url:
-                print("URL matches allowed host:", host)
-                return True
-        return False
-     
-    @property
-    def url_metadata(self):
-        """
-        Returns information about the internal view if it exists.
-        """
-        try:
-            match = resolve(self.url)
-            return {
-                'view_name': match.url_name,
-                'app_name': match.app_name,
-                'namespace': match.namespace,
-            }
-        except Resolver404:
-            return None
-    
+        return self.text or self.url or super().__str__() + f"Active: {self.active}"    
+        
 
 class LinkBar(BaseContent):
     position = models.CharField(max_length=30, choices=[('pre_header', 'Before Header (intro)'),

@@ -1,11 +1,14 @@
 /* Global CSS Variable declarations */
 .root{
+  --intro-container-bg-color: #FFFFFF;
+  --intro-container-bg-image: none;
   --card-container-bg-color: #ffffff;
   --card-container-bg-image: none;
   --navbar-justify: center;
   --navbar-bg-color: #ffffff;
   --navbar-bg-image: none;
   --navlink-bg-color: gray;
+  --navlink-bg-image: none;
 }
 
 /* Basic Reset and Styling */
@@ -25,54 +28,113 @@ body {
     background-image: var(--navbar-bg-image);
     display: flex;
     flex-wrap: wrap;
-    gap: 5px;
+    gap: clamp(2rem, 5vw, 3.5rem);
+    margin-top: 1.25em;
+    margin-bottom: 1.25em;
+    object-fit: cover;
+    background-position: top;
+    align-items: center;
+    justify-content: center;
     justify-content: var(--navbar-justify);
     list-style-type: none;
-    padding: 10px;
     overflow: hidden;
 }
 
-.navbar li a {
-    background-color: var(--navlink-bg-color);
-    color: var(--navlink-text-color);
-    display: flex;
-    padding: 10px;
-    text-decoration: none;
-    white-space: normal;
-    word-break: normal;
-    overflow-wrap: normal;
-    flex: 0 1 auto;
+.navbar li a:hover {
+    filter: brightness(0.8);
 }
 
-.navbar li a:hover {
-    filter: brightness(0.85);
+.nav-link li a {
+    background-color: var(--navlink-bg-color);
+    color: var(--navlink-text-color);
+    display: flex;         
+    flex-direction: column; 
+    align-items: center; 
+    margin: 0;
+}
+
+.nav-link span {
+    font-size: clamp(0.6rem, 0.5vw + 0.5rem, 0.75rem); 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center; 
+    text-decoration: none;
+}
+
+.nav-link img {
+    width: clamp(2rem, 4vw + 1rem, 3rem);
+    object-fit: cover;
+    display: block; 
+    margin: 0 auto 0.3125em;
 }
 
 .card-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 1.25em;
     justify-content: center;
-    padding: 20px;
-    width: 100%;
+    padding: 1.25em;
     background-color: var(--card-container-bg-color);
     background-image: var(--card-container-bg-image);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    border: none;
+    border-image: none;
+    height: 100%;
+    margin: 0 auto;
+    object-fit: cover;
+    background-position: top;
 }
 
 .body-container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 1.25em;
     justify-content: center;
-    padding: 20px;
+    padding: 1.25em;
+    background-color: var(--body-container-bg-color);
+    background-image: var(--body-container-bg-image);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     width: 100%;
+    border: none;
+    border-image: none;
+    height: 100%;
+    margin: 0 auto;
+    object-fit: cover;
+    background-position: top;
 }
 
 .intro-container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 1.25em;
     justify-content: center;
-    padding: 20px;
+    padding: 1.25em;
+    background-color: var(--intro-container-bg-color);
+    background-image: var(--intro-container-bg-image);
+    background-size: cover;
+    background-repeat: no-repeat;
     width: 100%;
+    border: none;
+    border-image: none;
+    height: 100%;
+    margin: 0 auto;
+    object-fit: cover;
+    background-position: bottom;
+}
+
+.footer-content {
+    --bg: var(--intro-container-bg-color);
+    background-color: var(--bg);
+    min-height: 5em;
+    display: block;
+    width: 100%;
+    padding: 1.25em; 
+    text-align: center;
+    margin-top: 1.25em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: clamp(0.6rem, 0.5vw + 0.5rem, 0.75rem); 
+    color: oklch(from var(--bg) clamp(0, (l - 0.5) * -100, 1) 0 h);
 }

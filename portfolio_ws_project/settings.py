@@ -103,8 +103,8 @@ ROOT_URLCONF = 'portfolio_ws_project.urls'
 TINYMCE_DEFAULT_CONFIG = {
     "width": "100%",
     "height": "600px",
-    "plugins": "image",
-    "toolbar": "undo redo | bold italic | alignleft aligncenter alignright | bullist numlist | image",
+    "plugins": "image | link",
+    "toolbar": "undo redo | bold italic | alignleft aligncenter alignright | bullist numlist | image | link unlink",
     "images_upload_url": "/tinymce-shared/upload-image/",
 }
 
@@ -162,7 +162,7 @@ DATABASES = {
         "HOST": DB_HOST,
         "PORT": "5432",
         "OPTIONS": {
-            "sslmode": "require", # Enable for non-Debug production environments
+            #"sslmode": "require", # Enable for non-Debug production environments
             "connect_timeout": 5, # Helps debug timeouts vs socket errors} 
         }
     }

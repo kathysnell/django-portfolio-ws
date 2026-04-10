@@ -19,7 +19,8 @@
 }
 
 body {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    position: relative;
+    min-height: 100vh;
 }
 
 .navbar ul {
@@ -29,35 +30,40 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: clamp(2rem, 5vw, 3.5rem);
-    margin-top: 1.25em;
-    margin-bottom: 1.25em;
+    padding: 1.25em;
+    width: 100%;
     object-fit: cover;
     background-position: top;
-    align-items: center;
-    justify-content: center;
+    align-items: flex-end;
     justify-content: var(--navbar-justify);
     list-style-type: none;
     overflow: hidden;
+    text-align: center;
 }
 
 .navbar li a:hover {
     filter: brightness(0.8);
 }
 
-.nav-link li a {
+.nav-link li {
     background-color: var(--navlink-bg-color);
     color: var(--navlink-text-color);
     display: flex;         
-    flex-direction: column; 
-    align-items: center; 
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
     margin: 0;
 }
 
-.nav-link span {
+.nav-link a {
     font-size: clamp(0.6rem, 0.5vw + 0.5rem, 0.75rem); 
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    text-align: center; 
+    text-align: center;
+    align-items: center;
+    justify-content: center;
     text-decoration: none;
+    margin: 0;
 }
 
 .nav-link img {
@@ -89,7 +95,7 @@ body {
 .body-container {
     display: flex;
     flex-direction: column;
-    gap: 1.25em;
+    gap: 1.5em;
     justify-content: center;
     padding: 1.25em;
     background-color: var(--body-container-bg-color);
@@ -104,6 +110,10 @@ body {
     margin: 0 auto;
     object-fit: cover;
     background-position: top;
+}
+
+.body-container ul {
+    margin-left: 2.5em;
 }
 
 .intro-container {
@@ -128,13 +138,25 @@ body {
 .footer-content {
     --bg: var(--intro-container-bg-color);
     background-color: var(--bg);
-    min-height: 5em;
+    min-height: 10em;
     display: block;
     width: 100%;
     padding: 1.25em; 
     text-align: center;
-    margin-top: 1.25em;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: clamp(0.6rem, 0.5vw + 0.5rem, 0.75rem); 
     color: oklch(from var(--bg) clamp(0, (l - 0.5) * -100, 1) 0 h);
+}
+
+.footer-content::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+    background-color: var(--intro-container-bg-color);
+    /*opacity: 0.5;*/
 }

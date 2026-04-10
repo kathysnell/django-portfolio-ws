@@ -11,14 +11,10 @@
                 {% endif %};">
                 <a class="nav-link" href="{{ link.url }}" target="_self" alt="{{ link.text }}" title="{{ link.text }}">
                     {% if link.icon %}
-                        <img class="nav-link" src="{{ link.icon.url }}" alt="{{ link.text }}" title="{{ link.text }}">
-                    {% else %}
-                        {{ link.text }} 
-                    {% endif %}                
+                        <img class="nav-link" src="{{ link.icon.url }}" alt="{{ link.text }}" title="{{ link.text }}"> 
+                    {% endif %}
+                    {{ link.text }}               
                 </a>
-                {% if link.icon %}
-                    <span>{{ link.text }}</span>
-                {% endif %}
             </li>
         {% endfor %}
     </ul>

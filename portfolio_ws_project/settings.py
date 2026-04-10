@@ -103,7 +103,7 @@ ROOT_URLCONF = 'portfolio_ws_project.urls'
 TINYMCE_DEFAULT_CONFIG = {
     "width": "100%",
     "height": "600px",
-    "plugins": "image | link",
+    "plugins": "image | link | lists",
     "toolbar": "undo redo | bold italic | alignleft aligncenter alignright | bullist numlist | image | link unlink",
     "images_upload_url": "/tinymce-shared/upload-image/",
 }

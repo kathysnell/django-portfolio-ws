@@ -35,3 +35,9 @@ public/
 
 # Cache
 *.cache
+
+# Firebase
+*.firebaserc
+
+# Cloud proxy
+cloud-sql-proxy

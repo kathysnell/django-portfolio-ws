@@ -25,3 +25,13 @@ media/
 *.svg
 *.ico
 
+# Static files:
+staticfiles/
+public/
+
+# Executables
+*.exe
+*.bin
+
+# Cache
+*.cache

@@ -1,4 +1,5 @@
 {% load static %}
+{% load email_helpers %}
 <header>
     {% if links and links_position == 'pre_header' %}
         {% include "nav.html" %}
@@ -8,7 +9,7 @@
                 {% if intro.bgimage %}
                     --intro-container-bg-image: url('{{ intro.bgimage.url }}');
                 {% endif %}">
-            {{ intro.content_html }}
+            {{ intro.content_html|protect_email }}
         </div>
     {% endif %}
     {% if links and links_position == 'post_header' %}

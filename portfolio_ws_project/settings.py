@@ -103,7 +103,7 @@ ROOT_URLCONF = 'portfolio_ws_project.urls'
 TINYMCE_DEFAULT_CONFIG = {
     "width": "100%",
     "height": "600px",
-    "plugins": "image | link | lists",
+    "plugins": "image | link | lists | code | table | media | wordcount",
     "toolbar": "undo redo | bold italic | alignleft aligncenter alignright | bullist numlist | image | link unlink",
     "images_upload_url": "/tinymce-shared/upload-image/",
 }
@@ -152,21 +152,37 @@ DB_NAME = os.environ.get("DB_NAME", "postgres")
 DB_USER = os.environ.get("DB_USER", "postgres")
 DB_PASS = os.environ.get("DB_PASS", "postgres")
 
-# DO NOT use env.db() here. Use raw os.environ to avoid auto-socket detection.
-DATABASES = {
-    "default": {
-        "ENGINE": "django.db.backends.postgresql",
-        "NAME": DB_NAME,
-        "USER": DB_USER,
-        "PASSWORD": DB_PASS,
-        "HOST": DB_HOST,
-        "PORT": "5432",
-        "OPTIONS": {
-            #"sslmode": "require", # Enable for non-Debug production environments
-            "connect_timeout": 5, # Helps debug timeouts vs socket errors} 
+if not DEBUG:
+    
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": DB_NAME,
+            "USER": DB_USER,
+            "PASSWORD": DB_PASS,
+            "HOST": DB_HOST,
+            "PORT": "5432",
+            "OPTIONS": {
+                "sslmode": "require", # Enable for non-Debug production environments
+                "connect_timeout": 5, # Helps debug timeouts vs socket errors} 
+            }
         }
     }
-}
+else:
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "NAME": DB_NAME,
+            "USER": DB_USER,
+            "PASSWORD": DB_PASS,
+            "HOST": DB_HOST,
+            "PORT": "5432",
+            "OPTIONS": {
+                "connect_timeout": 5, # Helps debug timeouts vs socket errors} 
+            }
+        }
+    }
+
 
 if DEBUG:
     print(f"Database configuration: {DATABASES['default']}")

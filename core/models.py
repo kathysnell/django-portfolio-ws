@@ -14,8 +14,8 @@ class BaseModel(models.Model):
 
 class BaseContent(BaseModel):
     content = HTMLField()
-    bgcolor = ColorField(default='#ffffff')
-    bgimage = models.ImageField(upload_to='backgrounds/', null=True, blank=True)
+    bgcolor = ColorField(default='#ffffff', verbose_name="Background Color")
+    bgimage = models.ImageField(upload_to='backgrounds/', null=True, blank=True, verbose_name="Background Image")
     active = models.BooleanField(default=False)
     page = models.CharField(max_length=50, null=True, blank=True)
 
@@ -30,20 +30,22 @@ class BaseContent(BaseModel):
         return strip_tags(content)
     
     def save(self, *args, **kwargs):
-        # Define what tags/attributes you want to allow from TinyMCE
-        # This prevents users from injecting <script> or inline styles
+        # Define what tags/attributes TinyMCE should allow
         self.content = nh3.clean(
             self.content,
             tags={
                 "p", "b", "i", "u", "em", "strong", "a", "img", 
-                "ul", "ol", "li", "br", "h1", "h2", "h3"
+                "ul", "ol", "li", "br", "h1", "h2", "h3", "span"
             },
             attributes={
                 "a": {"href", "title", "target"},
                 "img": {"src", "alt", "width", "height"},
+                 "*": {"style"}
             },
+
             link_rel="noopener noreferrer" # Recommended for security
-        )
+        )        
+        
         super().save(*args, **kwargs)
 
     @property

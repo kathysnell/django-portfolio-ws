@@ -10,7 +10,7 @@ class Card(BaseContent):
         choices=zip(BOXES, BOXES),
         default=BOXES[0],
     )
-    roundedcorners = models.BooleanField(default=False)
+    roundedcorners = models.BooleanField(default=False, verbose_name="Rounded Corners")
 
     def __str__(self):
         return f"Card {self.front} / {self.back} (Box {self.box}, Active: {self.active})"
@@ -41,9 +41,8 @@ class CardSide(BaseContent):
         related_name='sides' # All sides for this card
     )
     is_front = models.BooleanField(default=True)
-    bordercolor = ColorField(default='#000000')
+    bordercolor = ColorField(default='#000000', verbose_name="Border Color")
 
    
 class BodyContent(BaseContent):
     pass
-

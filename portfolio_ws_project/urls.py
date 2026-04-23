@@ -20,6 +20,7 @@ from django.views.generic import TemplateView, RedirectView
 from tinymce import settings
 from core.views import tinymce_upload_image
 from django.contrib.staticfiles.storage import staticfiles_storage
+from core.constants import ADMIN_PATH
 
 urlpatterns = [
     path('favicon.ico', RedirectView.as_view(url=staticfiles_storage.url('images/favicon.ico'))),
@@ -39,7 +40,7 @@ urlpatterns = [
         ),
         name="robots",
     ),
-    path('your-admin-gateway/', admin.site.urls),
+    path(ADMIN_PATH, admin.site.urls),
     path('tinymce-shared/', include('core.urls')), 
     path('tinymce/upload_image/', tinymce_upload_image, name='tinymce_upload_image'),
     path("", include("body.urls")),

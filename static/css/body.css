@@ -19,8 +19,14 @@
 }
 
 body {
-    position: relative;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    flex-direction: column;
     min-height: 100vh;
+}
+
+.base-container {
+    flex: 1 0 auto;
 }
 
 .navbar ul {
@@ -146,17 +152,4 @@ body {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-size: clamp(0.6rem, 0.5vw + 0.5rem, 0.75rem); 
     color: oklch(from var(--bg) clamp(0, (l - 0.5) * -100, 1) 0 h);
-}
-
-.footer-content::after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-    background-color: var(--intro-container-bg-color);
-    /*opacity: 0.5;*/
 }

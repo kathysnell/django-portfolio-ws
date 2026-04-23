@@ -12,10 +12,10 @@
     </head> 
     <body style="--intro-container-bg-color: {{ intro.bgcolor }};">
         {% include "header.html" %}
-        <div>
+        <main id="main-content" class="base-container">
             {% block content %}
             {% endblock %}
-        </div>
+        </main>
         {% include "footer.html" %}
     </body>
 </html>

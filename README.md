@@ -1,5 +1,5 @@
 # django-portfolio-ws
-An portfolio website model featuring dynamic display of content from a Postgres database. This model is a low code solution, ideal for professionals who want to easily develop and update a professional portfolio. The website is built using Django, deployed as a Google Cloud Run service and hosted by Firebase. It includes a custom admin interface for managing pages, and uses TinyMCE for rich HTML content.
+A portfolio website model featuring dynamic display of content from a Postgres database. This model is a low code solution, ideal for professionals who want to easily develop and update a professional portfolio. The website is built using Django, deployed as a Google Cloud Run service and hosted by Firebase. It includes a custom admin interface for managing pages, and uses TinyMCE for rich HTML content.
 
 ## Project Preparations
 Clone the repository: 
@@ -195,4 +195,3 @@ This project is licensed under the MIT License. See the LICENSE file for more de
 - Google Cloud Platform (GCP): https://cloud.google.com 
 - Pulumi: https://pulumi.com
 - TinyMCE HTML Content: https://www.tiny.cloud
-

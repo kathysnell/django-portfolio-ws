@@ -1,14 +1,21 @@
 /* Global CSS Variable declarations */
 .root{
-  --intro-container-bg-color: #FFFFFF;
+  --intro-container-bg-color:white;
   --intro-container-bg-image: none;
-  --card-container-bg-color: #ffffff;
+  --intro-container-bg-image-fallback: none;
+  --body-container-bg-color:white;
+  --body-container-bg-image: none;
+  --body-container-bg-fallback: none;
+  --card-container-bg-color:white;
   --card-container-bg-image: none;
+  --card-container-bg-image-fallback: none;
   --navbar-justify: center;
-  --navbar-bg-color: #ffffff;
+  --navbar-bg-color:white;
   --navbar-bg-image: none;
+  --navbar-bg-image-fallback: none;
   --navlink-bg-color: gray;
   --navlink-bg-image: none;
+  --navlink-bg-image-fallback: none;
 }
 
 /* Basic Reset and Styling */
@@ -43,7 +50,7 @@ body {
     align-items: flex-end;
     justify-content: var(--navbar-justify);
     list-style-type: none;
-    overflow: hidden;
+    /*overflow: hidden;*/
     text-align: center;
 }
 
@@ -51,8 +58,9 @@ body {
     filter: brightness(0.8);
 }
 
-.nav-link li {
+.navlink li {
     background-color: var(--navlink-bg-color);
+    background-image: var(--navlink-bg-image);
     color: var(--navlink-text-color);
     display: flex;         
     flex-direction: column;
@@ -62,7 +70,7 @@ body {
     margin: 0;
 }
 
-.nav-link a {
+.navlink a {
     font-size: clamp(0.6rem, 0.5vw + 0.5rem, 0.75rem); 
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
@@ -72,7 +80,7 @@ body {
     margin: 0;
 }
 
-.nav-link img {
+.navlink img {
     width: clamp(2rem, 4vw + 1rem, 3rem);
     object-fit: cover;
     display: block; 
@@ -92,7 +100,7 @@ body {
     width: 100%;
     border: none;
     border-image: none;
-    height: 100%;
+    min-height: 100%;
     margin: 0 auto;
     object-fit: cover;
     background-position: top;
@@ -105,17 +113,13 @@ body {
     justify-content: center;
     padding: 1.25em;
     background-color: var(--body-container-bg-color);
+    box-sizing: border-box; /* Includes padding in width calculation */
+    width: 100%;
+    min-height: 100%;
     background-image: var(--body-container-bg-image);
     background-size: cover;
-    background-position: center;
+    background-position: top center;
     background-repeat: no-repeat;
-    width: 100%;
-    border: none;
-    border-image: none;
-    height: 100%;
-    margin: 0 auto;
-    object-fit: cover;
-    background-position: top;
 }
 
 .body-container ul {
@@ -135,7 +139,7 @@ body {
     width: 100%;
     border: none;
     border-image: none;
-    height: 100%;
+    min-height: 100%;
     margin: 0 auto;
     object-fit: cover;
     background-position: bottom;

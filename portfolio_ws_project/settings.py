@@ -106,6 +106,7 @@ TINYMCE_DEFAULT_CONFIG = {
     "plugins": "image | link | lists | code | table | media | wordcount",
     "toolbar": "undo redo | bold italic | alignleft aligncenter alignright | bullist numlist | image | link unlink",
     "images_upload_url": "/tinymce-shared/upload-image/",
+    "license_key": "gpl",
 }
 
 TEMPLATES = [
@@ -121,7 +122,8 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'intro.context_processors.global_intro',
-                'link.context_processors.global_link',
+                'link.context_processors.global_linkbar',
+                'link.context_processors.global_links',
             ],
         },
     },
@@ -134,7 +136,7 @@ WSGI_APPLICATION = 'portfolio_ws_project.wsgi.application'
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 ##### ---- ENABLE THIS FOR LOCAL DEVELOPMENT WITH SQLITE -------- #####
-'''
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -143,10 +145,10 @@ DATABASES = {
     }
 
 DB_HOST = os.environ.get("DB_HOST", "db")
-'''
+
 ##### ---- END ENABLE THIS FOR LOCAL DEVELOPMENT WITH SQLITE ---- #####
 ##### ---- ENABLE THIS FOR PRODUCTION WITH POSTGRESQL ----------- #####
-
+'''
 DB_HOST = os.environ.get("DB_HOST", "db")
 DB_NAME = os.environ.get("DB_NAME", "postgres")
 DB_USER = os.environ.get("DB_USER", "postgres")
@@ -186,7 +188,7 @@ else:
 
 if DEBUG:
     print(f"Database configuration: {DATABASES['default']}")
-
+'''
 ##### ---- END ENABLE THIS FOR PRODUCTION WITH POSTGRESQL ----------- #####
 
 # Password validation

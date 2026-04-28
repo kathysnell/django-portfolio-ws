@@ -24,7 +24,7 @@ class BodyListView(ListView):
         context = super().get_context_data(**kwargs)
         body_list = get_default_list(BodyContent.objects.all())
         if body_list:
-            context['body_data'] = body_list
+            context['body_list'] = body_list
         card_list = get_default_list(Card.objects.all())
         if card_list:
             context['card_list'] = card_list

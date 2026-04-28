@@ -17,5 +17,22 @@
             {% endblock %}
         </main>
         {% include "footer.html" %}
+        <script>
+            const selectors = '.intro-container, .flip-card-front, .flip-card-back, .card-container, .body-container, .navlink, .navbar'
+            document.querySelectorAll(selectors).forEach(el => {
+                const varName = el.dataset.varName; 
+                const img = el.dataset.img;
+                const webp = el.dataset.webp;
+
+                if (img && varName) {
+                    // Sets the fallback (e.g., --header-bg-fallback)
+                    el.style.setProperty(`${varName}-fallback`, `url('${img}')`);
+      
+                    // Sets the main image-set (e.g., --header-bg)
+                    const imageSet = `image-set(url('${webp}') type('image/webp'), url('${img}') type('image/png'))`;
+                    el.style.setProperty(varName, imageSet)
+                }
+            });
+        </script>
     </body>
 </html>

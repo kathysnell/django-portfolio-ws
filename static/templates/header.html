@@ -1,14 +1,17 @@
 {% load static %}
 {% load email_helpers %}
+{% load webp_tags %}
 <header>
     {% if links and links_position == 'pre_header' %}
         {% include "nav.html" %}
     {% endif %}
     {% if intro %}
-        <div class="intro-container"style="
-                {% if intro.bgimage %}
-                    --intro-container-bg-image: url('{{ intro.bgimage.url }}');
-                {% endif %}">
+        <div class="intro-container"
+            {% if intro.bgimage.image %}
+                data-var-name="--intro-container-bg-image" 
+                data-img="{{ intro.bgimage.image.url }}" 
+                data-webp="{{ intro.bgimage.image.url|to_webp }}"
+            {% endif %}>
             {{ intro.content_html|protect_email }}
         </div>
     {% endif %}

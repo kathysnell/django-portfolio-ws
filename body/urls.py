@@ -1,6 +1,6 @@
 from django.urls import path
 
-from link.context_processors import get_global_links
+from link.context_processors import global_links
 
 from . import views
 from django.conf import settings

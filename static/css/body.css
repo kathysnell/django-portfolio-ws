@@ -39,7 +39,7 @@ body {
 .navbar ul {
     background: var(--navbar-bg-color);
     background-color: var(--navbar-bg-color);
-    background-image: var(--navbar-bg-image);
+    background-image: var(--navbar-bg-image, --navbar-bg-image-fallback);
     display: flex;
     flex-wrap: wrap;
     gap: clamp(2rem, 5vw, 3.5rem);
@@ -60,7 +60,7 @@ body {
 
 .navlink li {
     background-color: var(--navlink-bg-color);
-    background-image: var(--navlink-bg-image);
+    background-image: var(--navlink-bg-image, --navlink-bg-image-fallback);
     color: var(--navlink-text-color);
     display: flex;         
     flex-direction: column;
@@ -81,10 +81,10 @@ body {
 }
 
 .navlink img {
-    width: clamp(2rem, 4vw + 1rem, 3rem);
+    width: clamp(3rem, 4vw + 1rem, 3.2rem);
     object-fit: cover;
     display: block; 
-    margin: 0 auto 0.3125em;
+    margin: 0 auto 0.1565em;
 }
 
 .card-container {
@@ -94,23 +94,22 @@ body {
     justify-content: center;
     padding: 1.25em;
     background-color: var(--card-container-bg-color);
-    background-image: var(--card-container-bg-image);
+    background-image: var(--card-container-bg-image, --card-container-bg-image-fallback);
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: top center;
     width: 100%;
     border: none;
     border-image: none;
     min-height: 100%;
     margin: 0 auto;
-    object-fit: cover;
-    background-position: top;
 }
 
 .body-container {
     display: flex;
     flex-direction: column;
-    gap: 1.5em;
-    justify-content: center;
+    gap: 1.25em;
+    justify-content: top center;
     padding: 1.25em;
     background-color: var(--body-container-bg-color);
     box-sizing: border-box; /* Includes padding in width calculation */
@@ -133,16 +132,15 @@ body {
     justify-content: center;
     padding: 1.25em;
     background-color: var(--intro-container-bg-color);
-    background-image: var(--intro-container-bg-image);
+    background-image: var(--intro-container-bg-image, --intro-container-bg-image-fallback);
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: center center;
     width: 100%;
     border: none;
     border-image: none;
-    min-height: 100%;
+    height: 100%;
     margin: 0 auto;
-    object-fit: cover;
-    background-position: bottom;
 }
 
 .footer-content {

@@ -16,8 +16,6 @@ def global_linkbar(request):
         link_bar_bgcolor = '#ffffff'
         link_bar_bgimage_url = None
 
-    print(f"Links_bgimage_url: {link_bar_bgimage_url}")
-    
     return {'links': link_data, 
             'links_position': link_bar_position, 
             'links_justify': link_bar_justify, 

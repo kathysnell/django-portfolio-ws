@@ -1,6 +1,7 @@
 # Constants
-WEB_TITLE = "KathySnell.dev"
-WWW_URL = "www.kathysnell.dev"
-SECURE_URL = "https://kathysnell.dev"
-ADMIN_PATH = "key-door-90/"
+WEB_TITLE = "yourwebsite.com"
+WEB_DESC = "Your Name - Your Title : professional website."
+WWW_URL = "www.yourwebsite.com"
+SECURE_URL = "https://yourwebsite.com"
+ADMIN_PATH = "your-admin-key/"
 

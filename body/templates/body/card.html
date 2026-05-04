@@ -1,0 +1,33 @@
+{% load webp_tags %}
+<div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front"
+        {% if card.front.bgimage.image %}
+            data-var-name="--card-front-bg-image" 
+            data-img="{{ card.front.bgimage.image.url }}" 
+            data-webp="{{card.front.bgimage.image.url|to_webp }}"
+        {% endif %}
+        style="
+            --card-front-bg-color: {{ card.front.bgcolor }}; 
+            --card-front-text-color: {{ card.front.textcolor }}; 
+            --card-front-border-color: {{ card.front.bordercolor }};
+            --card-rounded-corners: {{ card.roundedcorners|yesno:'10px,0px' }};
+        ">
+        {{ card.front.content_html }}          
+    </div>
+    <div class="flip-card-back"
+        {% if card.back.bgimage.image %}
+            data-var-name="--card-back-bg-image" 
+            data-img="{{ card.back.bgimage.image.url }}" 
+            data-webp="{{card.back.bgimage.image.url|to_webp }}"
+        {% endif %}
+        style="
+            --card-back-bg-color: {{ card.back.bgcolor }}; 
+            --card-back-text-color: {{ card.back.textcolor }}; 
+            --card-back-border-color: {{ card.back.bordercolor }};
+            --card-rounded-corners: {{ card.roundedcorners|yesno:'10px,0px' }};
+        ">
+        {{ card.back.content_html }}     
+    </div>
+  </div>
+</div>

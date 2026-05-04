@@ -1,0 +1,26 @@
+services:
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8080
+    volumes:
+      - .:/app
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+    environment:
+      # Use the service name 'db' as the hostname, not localhost
+      DATABASE_URL: postgres://postgres:postgres@db:5432/postgres
+  db:
+    image: postgres:16-alpine
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432" # Optional: map the database port for local tools like pgAdmin
+
+volumes:
+  postgres_data:

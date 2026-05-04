@@ -1,0 +1,157 @@
+/* Global CSS Variable declarations */
+.root{
+  --intro-container-bg-color:white;
+  --intro-container-bg-image: none;
+  --intro-container-bg-image-fallback: none;
+  --body-container-bg-color:white;
+  --body-container-bg-image: none;
+  --body-container-bg-fallback: none;
+  --card-container-bg-color:white;
+  --card-container-bg-image: none;
+  --card-container-bg-image-fallback: none;
+  --navbar-justify: center;
+  --navbar-bg-color:white;
+  --navbar-bg-image: none;
+  --navbar-bg-image-fallback: none;
+  --navlink-bg-color: gray;
+  --navlink-bg-image: none;
+  --navlink-bg-image-fallback: none;
+}
+
+/* Basic Reset and Styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.base-container {
+    flex: 1 0 auto;
+}
+
+.navbar ul {
+    background: var(--navbar-bg-color);
+    background-color: var(--navbar-bg-color);
+    background-image: var(--navbar-bg-image, --navbar-bg-image-fallback);
+    display: flex;
+    flex-wrap: wrap;
+    gap: clamp(2rem, 5vw, 3.5rem);
+    padding: 1.25em;
+    width: 100%;
+    object-fit: cover;
+    background-position: top;
+    align-items: flex-end;
+    justify-content: var(--navbar-justify);
+    list-style-type: none;
+    /*overflow: hidden;*/
+    text-align: center;
+}
+
+.navbar li a:hover {
+    filter: brightness(0.8);
+}
+
+.navlink li {
+    background-color: var(--navlink-bg-color);
+    background-image: var(--navlink-bg-image, --navlink-bg-image-fallback);
+    color: var(--navlink-text-color);
+    display: flex;         
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.navlink a {
+    font-size: clamp(0.6rem, 0.5vw + 0.5rem, 0.75rem); 
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    margin: 0;
+}
+
+.navlink img {
+    width: clamp(3rem, 4vw + 1rem, 3.2rem);
+    object-fit: cover;
+    display: block; 
+    margin: 0 auto 0.1565em;
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25em;
+    justify-content: center;
+    padding: 1.25em;
+    background-color: var(--card-container-bg-color);
+    background-image: var(--card-container-bg-image, --card-container-bg-image-fallback);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    width: 100%;
+    border: none;
+    border-image: none;
+    min-height: 100%;
+    margin: 0 auto;
+}
+
+.body-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25em;
+    justify-content: top center;
+    padding: 1.25em;
+    background-color: var(--body-container-bg-color);
+    box-sizing: border-box; /* Includes padding in width calculation */
+    width: 100%;
+    min-height: 100%;
+    background-image: var(--body-container-bg-image);
+    background-size: cover;
+    background-position: top center;
+    background-repeat: no-repeat;
+}
+
+.body-container ul {
+    margin-left: 2.5em;
+}
+
+.intro-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25em;
+    justify-content: center;
+    padding: 1.25em;
+    background-color: var(--intro-container-bg-color);
+    background-image: var(--intro-container-bg-image, --intro-container-bg-image-fallback);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    width: 100%;
+    border: none;
+    border-image: none;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.footer-content {
+    --bg: var(--intro-container-bg-color);
+    background-color: var(--bg);
+    min-height: 10em;
+    display: block;
+    width: 100%;
+    padding: 1.25em; 
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: clamp(0.6rem, 0.5vw + 0.5rem, 0.75rem); 
+    color: oklch(from var(--bg) clamp(0, (l - 0.5) * -100, 1) 0 h);
+}

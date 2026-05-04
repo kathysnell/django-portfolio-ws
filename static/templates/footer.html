@@ -1,0 +1,13 @@
+{% load static %}
+{% load core_tags %}
+{% if links and links_position == 'pre_footer' %}
+    {% include "nav.html" %}
+{% endif %}
+<footer>
+    <div class="footer-content">
+        <p><img src="{% static 'images/favicon.ico' %}" alt="{% get_const 'WEB_TITLE' %} Logo" style="width: 16px; height: 16px; vertical-align: middle;">
+            &copy; 2026 {% get_const 'WEB_TITLE' %}. All rights reserved. 
+            <a href="/">Home</a>
+        </p>
+    </div>
+</footer>

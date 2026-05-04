@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block content %}
+{% if card_list %}
+{% load webp_tags %}
+    <div>
+        {% for card in card_list %}
+            <div class="card-container"
+                {% if card.bgimage.image %}
+                    data-var-name="--card-container-bg-image" 
+                    data-img="{{ card.bgimage.image.url }}" 
+                    data-webp="{{ card.bgimage.image.url|to_webp }}"
+                {% endif %}
+                style="--card-container-bg-color: {{ card.bgcolor }};">    
+                {% include "body/card.html" with object=card %}
+            </div>      
+        {% endfor %}
+    </div>
+{% endif %}
+{% if links and links_position == 'post_card' %}
+    {% include "nav.html" %}
+{% endif %}
+{% if body_list %}
+    {% for body in body_list %}
+        <div class="body-container"
+            {% if body.bgimage.image %}
+                data-var-name="--body-container-bg-image" 
+                data-img="{{ body.bgimage.image.url }}" 
+                data-webp="{{ body.bgimage.image.url|to_webp }}"
+            {% endif %}
+            style="
+                --body-container-bg-color: {{ body.bgcolor }};
+            ">
+            {{ body.content_html }}
+        </div>
+    {% endfor %}
+{% endif %}
+{% endblock content %}

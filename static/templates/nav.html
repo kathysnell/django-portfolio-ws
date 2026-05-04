@@ -1,0 +1,28 @@
+{% load static %}
+{% load webp_tags %}
+<nav class="navbar">
+    <ul class="navbar"
+        {% if links_bgimage_url %}
+            data-var-name="--navbar-bg-image" 
+            data-img="{{ links_bgimage_url }}" 
+            data-webp="{{ links_bgimage_url|to_webp }}"
+        {% endif %}
+        style="--navbar-justify: {{ links_justify }}; --navbar-bg-color: {{ links_bgcolor }};">
+        {% for link in global_links %}
+            <li class="navlink"
+            {% if link.bgimage.image %}
+                data-var-name="--navlink-bg-image" 
+                data-img="{{ link.bgimage.image.url }}" 
+                data-webp="{{ link.bgimage.image.url|to_webp }}"
+            {% endif %}
+            style="--navlink-bg-color: {{ link.bgcolor }};">
+                <a class="navlink" href="{{ link.url }}" target="_self" alt="{{ link.text }}" title="{{ link.text }}">
+                    {% if link.icon %}
+                        <img class="navlink" src="{{ link.icon.url }}" alt="{{ link.text }}" title="{{ link.text }}"> 
+                    {% endif %}
+                    {{ link.text }}              
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</nav>

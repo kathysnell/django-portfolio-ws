@@ -1,0 +1,42 @@
+{% load static %}
+{% load core_tags %}
+<!DOCTYPE html>
+<html lang="en" xml:lang="en">
+    <head>
+        <title>{% get_const 'WEB_TITLE' %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="{% get_const 'WEB_DESC' %}">
+        <meta name="theme-color" content="#FFFFFF">
+        <link rel="preload" fetchpriority="high" as="style" href="{% static 'css/body.css' %}">
+        <link rel="preload" fetchpriority="high" as="style" href="{% static 'css/card.css' %}">
+        <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'css/card.css' %}" />
+        <link rel="stylesheet" type="text/css" href="{% static 'css/body.css' %}" />
+        <link rel="canonical" href="{% block canonical_url %}https://{{ request.get_host }}{{ request.path }}{% endblock %}">
+    </head> 
+    <body style="--intro-container-bg-color: {{ intro.bgcolor }};">
+        {% include "header.html" %}
+        <main id="main-content" class="base-container">
+            {% block content %}
+            {% endblock %}
+        </main>
+        {% include "footer.html" %}
+        <script>
+            const selectors = '.intro-container, .flip-card-front, .flip-card-back, .card-container, .body-container, .navlink, .navbar'
+            document.querySelectorAll(selectors).forEach(el => {
+                const varName = el.dataset.varName; 
+                const img = el.dataset.img;
+                const webp = el.dataset.webp;
+
+                if (img && varName) {
+                    // Sets the fallback (e.g., --header-bg-fallback)
+                    el.style.setProperty(`${varName}-fallback`, `url('${img}')`);
+      
+                    // Sets the main image-set (e.g., --header-bg)
+                    const imageSet = `image-set(url('${webp}') type('image/webp'), url('${img}') type('image/png'))`;
+                    el.style.setProperty(varName, imageSet)
+                }
+            });
+        </script>
+    </body>
+</html>

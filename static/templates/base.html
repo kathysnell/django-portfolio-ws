@@ -5,6 +5,10 @@
     <head>
         <title>{% get_const 'WEB_TITLE' %}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="{% get_const 'WEB_DESC' %}">
+        <meta name="theme-color" content="#FFFFFF">
+        <link rel="preload" fetchpriority="high" as="style" href="{% static 'css/body.css' %}">
+        <link rel="preload" fetchpriority="high" as="style" href="{% static 'css/card.css' %}">
         <link rel="icon" type="image/x-icon" href="{% static 'images/favicon.ico' %}">
         <link rel="stylesheet" type="text/css" href="{% static 'css/card.css' %}" />
         <link rel="stylesheet" type="text/css" href="{% static 'css/body.css' %}" />

@@ -17,9 +17,7 @@ class BaseModel(models.Model):
         abstract = True
 
 def get_upload_path(instance, filename):
-    # Allow the child class to define its own folder
-    folder = getattr(instance, 'upload_folder', 'images')
-    return f'{folder}/{filename}'
+    return f'{filename}'
 
 class BaseImage(models.Model):
     # Use the dynamic path function here
@@ -33,18 +31,10 @@ class BaseImage(models.Model):
     
     def save(self, *args, **kwargs):
         if self.image:
-            full_path = os.path.join(str(self.upload_folder), str(self.image.name))
-            if default_storage.exists(full_path):
-                # Image exists, save name to database only
-                self.image = full_path
-                super().save(*args, **kwargs)
-                # Webp support
-                save_webp(full_path)
-                return                
-            # New image processing
+            file_path = os.path.join(self.upload_folder, self.image.name)
+            default_storage.save(file_path, self.image)
             super().save(*args, **kwargs)
-            if self.image:
-                save_webp(full_path)                  
+            save_webp(file_path)             
 
 class WebpOrLegacyBackgroundImage(BaseImage):
     upload_folder = 'backgrounds'
@@ -61,7 +51,7 @@ class WebpOrLegacyBackgroundImage(BaseImage):
 class BaseContent(BaseModel):
     content = HTMLField()
     bgcolor = ColorField(default='#ffffff', verbose_name="Background Color")
-    bgimage = models.OneToOneField(
+    bgimage = models.ForeignKey(
         WebpOrLegacyBackgroundImage,
         on_delete=models.SET_NULL,
         null=True,
@@ -88,11 +78,13 @@ class BaseContent(BaseModel):
             
             tags={
                 "p", "b", "i", "u", "em", "strong", "a", "img", 
-                "ul", "ol", "li", "br", "h1", "h2", "h3", "span"
+                "ul", "ol", "li", "br", "h1", "h2", "h3", "span", "picture", "source"
             },
             attributes={
                 "a": {"href", "title", "target"},
                 "img": {"src", "alt", "width", "height"},
+                "picture": {"source"},
+                "source": {"srcset", "type"},
                 "*": {"style"}
             },
             

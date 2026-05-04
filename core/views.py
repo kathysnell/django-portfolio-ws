@@ -10,7 +10,6 @@ from .utils import save_webp
 def tinymce_upload_image(request):
     if request.method == 'POST' and request.FILES.get('file'):
         file_obj = request.FILES['file']     
-        # Save to media/tinymce_uploads/filename.jpg
         file_path = os.path.join('tinymce/upload_images', file_obj.name)
         filename = default_storage.save(file_path, file_obj)
         file_url = default_storage.url(filename)

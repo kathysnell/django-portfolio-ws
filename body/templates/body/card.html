@@ -11,7 +11,7 @@
             --card-front-bg-color: {{ card.front.bgcolor }}; 
             --card-front-text-color: {{ card.front.textcolor }}; 
             --card-front-border-color: {{ card.front.bordercolor }};
-            --card-border-radius: {{ card.roundedcorners|yesno:'10px,0px' }};
+            --card-rounded-corners: {{ card.roundedcorners|yesno:'10px,0px' }};
         ">
         {{ card.front.content_html }}          
     </div>
@@ -25,7 +25,7 @@
             --card-back-bg-color: {{ card.back.bgcolor }}; 
             --card-back-text-color: {{ card.back.textcolor }}; 
             --card-back-border-color: {{ card.back.bordercolor }};
-            --card-border-radius: {{ card.roundedcorners|yesno:'10px,0px' }};
+            --card-rounded-corners: {{ card.roundedcorners|yesno:'10px,0px' }};
         ">
         {{ card.back.content_html }}     
     </div>

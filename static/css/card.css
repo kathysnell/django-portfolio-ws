@@ -22,7 +22,6 @@
   width: 18.75em;
   margin-bottom: 1.25em;
   margin-top: 1.25em;
-  cursor: pointer;
 }
 
 /* This container is needed to position the front and back side */
@@ -31,8 +30,9 @@
   position: relative;
   width: 100%;
   text-align: center;
+  /*will-change: transform;*/
   transform-style: preserve-3d;
-  transition: transform 0.8s;
+  transition: transform 0.6s;
 }
 
 /* Do an horizontal flip when you move the mouse over the flip box container */
@@ -52,13 +52,10 @@
   position: absolute;
   width: 100%;
   -webkit-backface-visibility: hidden; /* Safari */
-  top: 0;
-  left: 0;
 }
 
 /* Style the front side */
 .flip-card-front {
-  z-index: 2;
   background-color: var(--card-front-bg-color);
   background-image: var(--card-front-bg-image, --card-front-bg-image-fallback);
   background-size: cover;
@@ -71,7 +68,6 @@
 /* Style the back side */
 .flip-card-back {
   transform: rotateY(180deg);
-  z-index: 1;
   background-color: var(--card-back-bg-color);
   background-image: var(--card-back-bg-image, --card-back-bg-image-fallback);
   background-size: cover;
@@ -80,4 +76,3 @@
   border: 2px solid var(--card-back-border-color);
   border-radius: var(--card-rounded-corners);
 }
-

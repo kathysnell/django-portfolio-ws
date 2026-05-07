@@ -195,3 +195,6 @@ This project is licensed under the MIT License. See the LICENSE file for more de
 - Google Cloud Platform (GCP): https://cloud.google.com 
 - Pulumi: https://pulumi.com
 - TinyMCE HTML Content: https://www.tiny.cloud
+
+## Example Portfolio
+An example portfolio website built using this model can be found at https://kathysnell.dev
